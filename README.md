@@ -49,10 +49,7 @@ Before getting started, make sure you have the following installed:
 
 Create a directory named subprojects in the root directory, next create a file named `tscl-xdream-c.wrap` in the `subprojects` directory of your project with the following content:
 
-   ```bash
-   # ================ #
-   #  FSCL Wrap File. #
-   # ================ #
+   ```ini
    [wrap-git]
    url = https://github.com/fossil-lib/fscl-xdream-c.git
    revision = main
@@ -61,23 +58,14 @@ Create a directory named subprojects in the root directory, next create a file n
    fscl-xdream-c = fscl_xdream_c_dep
    ```
 
-2. **Integrate Wrap File in Meson Build**:
+**Integrate Dependency**:
    ```meson
-   project('my_project', 'c',
-       version : '0.1',
-       default_options : ['warning_level=3'])
+   project('my_project', 'c')
 
    exe = executable('my_project', 'my_project.c',
-       dependencies : dependency('fscl-xdream-c'), # add this line
-       install : true)
+       dependencies : dependency('fscl-xdream-c')) # add this line
 
    test('basic', exe)
-   ```
-
-3. **Compile the Project**:
-   ```bash
-   meson setup builddir
-   meson compile -C builddir
    ```
 
 ## Including the Demo and Running Tests
@@ -92,17 +80,10 @@ Example:
 meson setup builddir -Dwith_test=enabled
 ```
 
-## Contributing
+## Contributing and Support
 
-If you're interested in contributing to this project, please consider opening pull requests or creating issues on the [GitHub repository](https://github.com/fossil-lib/fscl-xdream-c).
+If you're interested in contributing to this project, encounter any issues, have questions, or would like to provide feedback, don't hesitate to open an issue or visit the [Fossil Logic Docs](https://fossillogic.com/the-docs) for more information.
 
-## Feedback and Support
-
-If you encounter any issues, have questions, or would like to provide feedback, don't hesitate to open an issue on the [GitHub repository](https://github.com/fossil-lib/fscl-xdream-c/issues).
-
-## License
-
-This project is licensed under the [Apache License 2.0](LICENSE).
 
 ---
 
